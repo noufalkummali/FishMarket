@@ -1,0 +1,87 @@
+﻿@model IEnumerable<FishMarketing.ViewModel.PurchasePlaceVm>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int sn = 0;
+}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Purchase Place List</h5>    <a asp-action="Create">Add Purchase Place</a>
+
+
+        <table class="table table-bordered border-primary">
+            <thead>
+                <tr>
+                    <th scope="col">Sn</th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Code)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.ContactName)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Place)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.MobileNumber)
+                    </th>
+                    @*<th scope="col">
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </th>*@
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.IsActive)
+                    </th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <th scope="row">@(++sn)</th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContactName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Place)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MobileNumber)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsActive)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.PurchasePlaceId">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@item.PurchasePlaceId">Delete</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+@section scripts{
+    @*// Add something here*@
+}

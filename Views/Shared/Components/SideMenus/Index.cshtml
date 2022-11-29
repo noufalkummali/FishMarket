@@ -1,0 +1,12 @@
+﻿@model List<FishMarketing.ViewModel.UserPrivilegesVm>
+@foreach (var item in Model)
+{
+<li class="nav-item">
+    <a class="nav-link collapsed" href='@Url.Action(item.ActionName, item.controllerName)'>
+        @*<i class="bi bi-grid"></i>*@
+        <i class='@item.Icon_Image'></i>
+        <span>@item.MenuName</span>
+    </a>
+</li>
+}
+

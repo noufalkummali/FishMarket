@@ -1,0 +1,36 @@
+﻿@model FishMarketing.ViewModel.LoginVm
+@{
+    //ViewBag.Title = "Index";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page with Background Image Example</title>
+    @*<link rel="stylesheet" href="./style.css">*@
+    <link href="assets/LoginStyle/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- partial:index.partial.html -->
+    <div id="bg"></div>
+
+    <form asp-action="Index">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-field">
+            <input asp-for="Username" placeholder="Username" required />
+        </div>
+
+        <div class="form-field">
+            <input asp-for="Password" type="password" placeholder="Password" required />
+        </div>
+
+        <div class="form-field">
+            <button class="btn" type="submit">Log in</button>
+        </div>
+    </form>
+    <!-- partial -->
+
+</body>
+</html>
+

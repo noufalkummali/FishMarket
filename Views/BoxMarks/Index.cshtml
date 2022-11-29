@@ -1,0 +1,52 @@
+﻿@model IEnumerable<FishMarketing.ViewModel.BoxMarkVm>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int sn = 0;
+}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Box Mark List</h5>    <a asp-action="Create">Add Box Mark</a>
+
+
+        <table class="table table-bordered border-primary">
+            <thead>
+                <tr>
+                    <th scope="col">Sn</th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.BoxMarkName)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Remarks)
+                    </th>                    
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@(++sn)</th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BoxMarkName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Remarks)
+                        </td>                        
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.BoxMarkId">Edit</a> |
+                            @*<a asp-action="Details" asp-route-id="@item.BoxMarkId">Details</a> |*@
+                            <a asp-action="Delete" asp-route-id="@item.BoxMarkId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+@section scripts{
+    @*// Add something here*@
+}
